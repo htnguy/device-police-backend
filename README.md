@@ -24,13 +24,11 @@ https://www.twilio.com/docs/twilio-cli/quickstart
 
 Make sure you have a copy of the repo before proceeding.
 
-1. Run
+1. install the dependencies needed to run this app
 
 ```
 npm install
 ```
-
-to install the dependencies needed to run this app
 
 2. create a .env file that will stored some important tokens and keys
 
@@ -98,6 +96,7 @@ try to send a sms to your Twilio phone number and see if you get a response.
 ## What's Next?
 
 check out the repo for the frontend of this app: [device-police-frontend](https://github.com/htnguy/device-police-frontend)
+
 ## Author
 
 **Hieu Nguyen** - [get to know me](https://www.devsurvival.com/about-me/)
