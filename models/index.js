@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/device-police");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/device-police"
+);
 mongoose.set("debug", true);
 mongoose.connection.once("open", () => {
   console.log("connected to mongodb!");
@@ -8,4 +10,4 @@ mongoose.connection.once("open", () => {
 
 module.exports.User = require("./user.js");
 module.exports.Token = require("./verificationToken");
-module.exports.Timer = require("./timer.js")
+module.exports.Timer = require("./timer.js");
