@@ -11,6 +11,7 @@ router.post("/receive", async (req, res, next) => {
   const twiml = new MessagingResponse();
   let message;
   const { Body, From } = req.body;
+  console.log("body and from ", Body, From);
   const existingUser = await db.User.findOne({ phone: From });
   if (!existingUser) {
     switch (Body.toLowerCase()) {
@@ -59,9 +60,13 @@ router.post("/receive", async (req, res, next) => {
       }
     }
   }
-  twiml.message(message);
-  res.writeHead(200, { "Content-Type": "text/xml" });
-  res.end(twiml.toString());
+  try {
+    twiml.message(message);
+    res.writeHead(200, { "Content-Type": "text/xml" });
+    res.end(twiml.toString());
+  } catch (error) {
+    console.log("twilio error", error);
+  }
 });
 
 // routes for sending a sms from the twilio phone number to the provided phone number in the request body
