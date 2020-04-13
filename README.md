@@ -95,6 +95,9 @@ try to send a sms to your Twilio phone number and see if you get a response.
 - Twilio SMS - programmatically send/receive SMS
 - Bored API - getting a random activity for ya to do
 
+## What's Next?
+
+check out the repo for the frontend of this app: [device-police-frontend](https://github.com/htnguy/device-police-frontend)
 ## Author
 
 **Hieu Nguyen** - [get to know me](https://www.devsurvival.com/about-me/)
