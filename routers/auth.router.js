@@ -62,7 +62,7 @@ router.post("/resendverificationcode", async (req, res, next) => {
 // confirming the user when the user enters the verification code
 router.post("/confirm", async (req, res, next) => {
   try {
-    const token = await db.Token.findOne({ token: req.body.token });
+    const token = await db.Token.findOne({ token: req.body.code });
     if (!token) {
       return next({ status: 400, message: "code has expired" });
     }
@@ -89,7 +89,7 @@ router.post("/signin", async (req, res, next) => {
   try {
     const user = await db.User.findOne({ phone: req.body.phone });
     if (!user.isVerified) {
-      return next("user is not verified");
+      return next({status: 400, message: "user is not verified"});
     }
     const isMatch = await user.comparePassword(req.body.password);
     if (isMatch) {

@@ -30,7 +30,6 @@ router.post("/reset", async (req, res, next) => {
   try {
     clearTimeout(TimerBuffers[req.params.userId]);
     delete TimerBuffers[req.params.userId];
-
     next("timer stopped");
   } catch (err) {
     console.log(err);
