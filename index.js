@@ -10,7 +10,7 @@ const TimerRouter = require("./routers/timer.router.js");
 const { ensureCorrectUser } = require("./middleware/auth.middleware.js");
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet());
 
 // SETTING UP CORS

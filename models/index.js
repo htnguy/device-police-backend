@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 mongoose.Promise = Promise;
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/device-police"
+  process.env.MONGODB_URI || "mongodb://localhost/device-police",
+  { useNewUrlParser: true }
 );
 mongoose.set("debug", true);
 mongoose.connection.once("open", () => {

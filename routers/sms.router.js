@@ -10,7 +10,7 @@ const activityAPI = require("../helpers/activityAPI.js");
 router.post("/receive", async (req, res, next) => {
   try {
     const twiml = new MessagingResponse();
-    let message;
+    let message = "";
     const { Body, From } = req.body;
     console.log("body and from ", Body, From);
     const existingUser = await db.User.findOne({ phone: From });
