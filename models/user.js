@@ -30,12 +30,12 @@ userSchema.pre("save", async function (next) {
 });
 
 // method for comparing two password
-userSchema.methods.comparePassword = async function (passwordInput, next) {
+userSchema.methods.comparePassword = async function (passwordInput) {
   try {
     let isMatch = await bcrypt.compare(passwordInput, this.password);
     return isMatch;
   } catch (err) {
-    return next(err);
+    return false;
   }
 };
 

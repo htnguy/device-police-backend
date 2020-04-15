@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const AuthRouter = require("./routers/auth.router");
 const SMSRouter = require("./routers/sms.router");
 const TimerRouter = require("./routers/timer.router.js");
+const UserRouter = require("./routers/user.router.js");
 const { ensureCorrectUser } = require("./middleware/auth.middleware.js");
 
 app.use(bodyParser.json());
@@ -35,6 +36,7 @@ if (process.env.NODE_ENV !== "production") {
 app.use("/auth", AuthRouter);
 app.use("/twilio", SMSRouter);
 app.use("/timer/:userId", ensureCorrectUser, TimerRouter);
+app.use("/user", UserRouter);
 
 //  RESPONSE AND ERROR HANDLER
 app.use((payload, req, res, next) => {

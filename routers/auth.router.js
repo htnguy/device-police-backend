@@ -99,10 +99,12 @@ router.post("/signin", async (req, res, next) => {
       );
       return next({ jwt: jwtToken, message: "sign in success!" });
     }
+    next({status: 400, message: "incorrect phone number or password"})
   } catch (err) {
     console.log(err);
     next({ status: 400, message: "failed to sign in" });
   }
 });
+
 
 module.exports = router;
